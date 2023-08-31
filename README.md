@@ -13,7 +13,7 @@ Looking for another of my squads? You can find it here: https://github.com/Heder
 ## What's Included
 This mod adds a new squad based around rapidly repositioning Vek for the black hole to devour.
 
-![image](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/86368533-1835-4d10-a6a2-42a2833d00d7)
+![voidscrapers_menu](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/f5343f98-ee06-4111-901d-69273d80c6b9)
 
 
 ![palanquin_demo](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/7ddbb0e9-6830-48fd-a6f6-1383c67f5c21)

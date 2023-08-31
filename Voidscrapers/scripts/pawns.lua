@@ -57,9 +57,9 @@ for _, file in ipairs(files) do
 end
 
 a.turtle_mech =			a.MechUnit:new{Image = "units/player/turtle_mech.png", PosX = -23, PosY = -2} 
-a.turtle_mecha =			a.MechUnit:new{Image = "units/player/turtle_mech_a.png", PosX = -22, PosY = -21, NumFrames = 10, Time = 0.125 }
+a.turtle_mecha =			a.MechUnit:new{Image = "units/player/turtle_mech_a.png", PosX = -22, PosY = -22, NumFrames = 10, Time = 0.125 }
 a.turtle_mechw =			a.MechUnit:new{Image = "units/player/turtle_mech_w.png", PosX = -24, PosY = -14, NumFrames = 10, Time = 0.125 } 
-a.turtle_mech_broken =	a.MechUnit:new{Image = "units/player/turtle_mech_broken.png", PosX = -23, PosY = -21 }
+a.turtle_mech_broken =	a.MechUnit:new{Image = "units/player/turtle_mech_broken.png", PosX = -23, PosY = -22 }
 a.turtle_mechw_broken =	a.MechUnit:new{Image = "units/player/turtle_mech_w_broken.png", PosX = -24, PosY = -12 }
 a.turtle_mech_ns =		a.MechIcon:new{Image = "units/player/turtle_mech_ns.png"}
 

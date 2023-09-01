@@ -113,7 +113,7 @@ function SS_Clapcannon:GetSkillEffect(p1, p2)
 				ret:AddDamage(thump)
 				ret:AddBounce(land,4)
 				if not IsTipImage() and not IsTestMechScenario() then
-					ret:AddScript(string.format("local pawn = Board:GetPawn(Point(%d,%d)) local here = pawn:GetSpace() pawn:SetSpace(Point(-1,-1)) modApi:scheduleHook(100, function() pawn:SetSpace(here) end)",land.x,land.y)) --tatu fixed this blame tatu <3
+					ret:AddScript(string.format("local pawn = Board:GetPawn(Point(%d,%d)) local here = pawn:GetSpace() pawn:SetSpace(Point(-1,-1)) modApi:scheduleHook(17, function() pawn:SetSpace(here) end)",land.x,land.y)) --tatu fixed this blame tatu <3
 				end
 				
 			end

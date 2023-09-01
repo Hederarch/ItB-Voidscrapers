@@ -122,7 +122,8 @@ function SS_Clapcannon:GetSkillEffect(p1, p2)
 			end
 		end
 	-- achievement trigger
-	if GAME.squadTitles["TipTitle_"..GameData.ach_info.squad] == "Voidscrapers" and 
+	
+	if not IsTipImage() and not IsTestMechScenario() and GAME.squadTitles["TipTitle_"..GameData.ach_info.squad] == "Voidscrapers" and 
 		not modApi.achievements:isComplete("hedera_voidscrapers", "VS_BossKill") and targets == 4 then
 		ret:AddScript("local complete = modApi.achievements:isComplete(\"hedera_voidscrapers\",\"VS_MassMove\") if complete then return end modApi.achievements:trigger(\"hedera_voidscrapers\",\"VS_MassMove\")")
 	end
@@ -180,7 +181,7 @@ function SS_CrushPull:GetSkillEffect(p1,p2)
 		local consume = SpaceDamage(p2,DAMAGE_DEATH)
 		consume.sAnimation = "ExploConsume"
 		-- achievement trigger
-		if Board:IsPawnSpace(p2) and GAME.squadTitles["TipTitle_"..GameData.ach_info.squad] == "Voidscrapers" and 
+		if not IsTipImage() and not IsTestMechScenario() and Board:IsPawnSpace(p2) and GAME.squadTitles["TipTitle_"..GameData.ach_info.squad] == "Voidscrapers" and 
 		not modApi.achievements:isComplete("hedera_voidscrapers", "VS_BossKill") and
 		_G[Board:GetPawn(p2):GetType()].Tier == TIER_BOSS and Board:GetTurn() == 1 then
 		

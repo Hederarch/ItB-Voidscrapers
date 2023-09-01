@@ -77,6 +77,7 @@ end
 function SS_Clapcannon:GetSkillEffect(p1, p2)
 	local ret = SkillEffect()
 	local damage = SpaceDamage(p2,0)
+	local targets = 0
 	damage.iShield = self.Shield
 	damage.sAnimation = "ExploRepulse1",
 	ret:AddBounce(p1, 1)
@@ -93,6 +94,8 @@ function SS_Clapcannon:GetSkillEffect(p1, p2)
 					move:push_back(land)
 					ret:AddLeap(move, NO_DELAY)
 					ret.effect:back().bHide = true
+					targets = targets + 1
+					LOG(targets)
 				else
 					local block = SpaceDamage(launch,0)
 					block.sImageMark = "advanced/combat/icons/icon_throwblocked_glow.png"
@@ -118,7 +121,12 @@ function SS_Clapcannon:GetSkillEffect(p1, p2)
 				
 			end
 		end
-	
+	-- achievement trigger
+	if GAME.squadTitles["TipTitle_"..GameData.ach_info.squad] == "Voidscrapers" and 
+		not modApi.achievements:isComplete("hedera_voidscrapers", "VS_BossKill") and targets == 4 then
+		ret:AddScript("local complete = modApi.achievements:isComplete(\"hedera_voidscrapers\",\"VS_MassMove\") if complete then return end modApi.achievements:trigger(\"hedera_voidscrapers\",\"VS_MassMove\")")
+	end
+
 	return ret
 	
 end
@@ -171,6 +179,13 @@ function SS_CrushPull:GetSkillEffect(p1,p2)
 		
 		local consume = SpaceDamage(p2,DAMAGE_DEATH)
 		consume.sAnimation = "ExploConsume"
+		-- achievement trigger
+		if Board:IsPawnSpace(p2) and GAME.squadTitles["TipTitle_"..GameData.ach_info.squad] == "Voidscrapers" and 
+		not modApi.achievements:isComplete("hedera_voidscrapers", "VS_BossKill") and
+		_G[Board:GetPawn(p2):GetType()].Tier == TIER_BOSS and Board:GetTurn() == 1 then
+		
+			ret:AddScript("local complete = modApi.achievements:isComplete(\"hedera_voidscrapers\",\"VS_BossKill\") if complete then return end modApi.achievements:trigger(\"hedera_voidscrapers\",\"VS_BossKill\")")
+		end
 		ret:AddMelee(p1,consume,NO_DELAY)
 		for dir = DIR_START,DIR_END do
 			local gust = SpaceDamage(p2 - DIR_VECTORS[dir],0)
@@ -343,3 +358,9 @@ SS_PrecisionShot_AB = SS_PrecisionShot:new{
 		Mountain = Point(2,3),
 	},
 }
+
+function FireChevio(id)
+	local complete = modApi.achievements:isComplete(modId,id)
+	if complete then return end
+	modApi.achievements:trigger(modId,id)
+end

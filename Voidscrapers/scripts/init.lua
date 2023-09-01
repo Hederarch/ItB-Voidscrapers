@@ -11,7 +11,19 @@ local mod = {
 }
 
 function mod:init()
+	if modApiExt then
+		-- modApiExt already defined. This means that the user has the complete
+		-- ModUtils package installed. Use that instead of loading our own one.
+		Hedera_Voidscrapers_ModApiExt = modApiExt
+	else
+		-- modApiExt was not found. Load our inbuilt version
+		local extDir = self.scriptPath.."modApiExt/"
+		Hedera_Voidscrapers_ModApiExt = require(extDir.."modApiExt")
+		Hedera_Voidscrapers_ModApiExt:init(extDir)
+	end
+	
 	-- look in template/mech to see how to code mechs.
+	require(self.scriptPath .."achievements")
 	require(self.scriptPath .."palettes")
 	require(self.scriptPath .."pawns")
 	require(self.scriptPath .."animations")
@@ -22,9 +34,9 @@ function mod:init()
 end
 
 --New shop
-    --modApi:addWeaponDrop("VS_Prime_Driver")
-    --modApi:addWeaponDrop("VS_Ranged_ShieldArti")
-    --modApi:addWeaponDrop("VS_Brute_Magnum")
+    modApi:addWeaponDrop("SS_Clapcannon")
+    modApi:addWeaponDrop("SS_CrushPull")
+    modApi:addWeaponDrop("SS_PrecisionShot")
 
 function mod:load(options, version)
 	-- after we have added our mechs, we can add a squad using them.

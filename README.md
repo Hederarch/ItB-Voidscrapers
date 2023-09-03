@@ -1,4 +1,6 @@
-![voidscrapers logo big](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/021e5481-8807-42b2-b8a1-4f681ca63257)
+![voidscrapers1 1 logo_big](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/92228f83-d7d6-41fd-9f1c-ff40bacb45f7)
+
+*Version 1.1 out now!*
 
 This is a new squad for Into the Breach. Just extract the zip and put it right in the game's mods folder.
 
@@ -43,8 +45,12 @@ The **Flux Mech** can shoot through anything to spread out groups and precisely 
 
 Building Immune (1 Core) - No longer damages targeted buildings.
 
-This mod also includes an orginal palette, Astral Teal:
+## Version 1.1
+New to this post-release update are 3 achievments to unlock the squad's weapons for all runs, and a secret special pilot for completing them all!
 
-![voidscrapers_palette](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/9d34ca93-0b91-460c-80a5-024dbbb1ed27)
+![voidscrapers_chievo1](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/893071bc-6bb2-44ec-bd71-28153ad2a513)
+![voidscrapers_chievo2](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/6b14c9fb-44d4-4111-ba0f-f0bbacca3ad4)
+![voidscrapers_chievo3](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/947ed003-dd7a-4d5b-8422-682fec69d95b)
+![mawpilot_secret](https://github.com/Hederarch/ItB-Voidscrapers/assets/66890769/29e2475b-6f86-46a8-9c1b-a717334ca24d)
 
 *Thanks for playing!*

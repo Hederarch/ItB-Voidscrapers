@@ -4,7 +4,7 @@
 local mod = {
 	id = "hedera_voidscrapers",
 	name = "Voidscrapers",
-	version = "1.0.0",
+	version = "1.1.0",
 	requirements = {},
 	modApiVersion = "2.3.0",
 	icon = "img/mod_icon.png"
@@ -28,15 +28,26 @@ function mod:init()
 	require(self.scriptPath .."pawns")
 	require(self.scriptPath .."animations")
 	require(self.scriptPath .."weapons")
+	if modApi.achievements:isComplete(mod.id,"VS_Final") then
+		local pilot = require(self.scriptPath .."pilot")
+		pilot:init(mod)
+		require(self.scriptPath.."replaceRepair/replaceRepair")
+	end
 	
 	modApi:appendAsset("img/effects/explo_consume.png",self.resourcePath.."img/effects/explo_consume.png")
 	modApi:appendAsset("img/effects/explo_shine_small.png",self.resourcePath.."img/effects/explo_shine_small.png")
+	modApi:appendAsset("img/units/player/voidscrapers_palette_2.png",self.resourcePath.."img/units/turtle/voidscrapers_palette_2.png")
+	
+	if modApi.achievements:isComplete(mod.id,"VS_BossKill") then
+		modApi:addWeaponDrop("SS_Clapcannon")
+	end
+	if modApi.achievements:isComplete(mod.id,"VS_MassMove") then
+		modApi:addWeaponDrop("SS_CrushPull")
+	end
+	if modApi.achievements:isComplete(mod.id,"VS_TripleKill") then
+		modApi:addWeaponDrop("SS_PrecisionShot")
+	end
 end
-
---New shop
-    modApi:addWeaponDrop("SS_Clapcannon")
-    modApi:addWeaponDrop("SS_CrushPull")
-    modApi:addWeaponDrop("SS_PrecisionShot")
 
 function mod:load(options, version)
 	-- after we have added our mechs, we can add a squad using them.

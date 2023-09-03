@@ -95,7 +95,6 @@ function SS_Clapcannon:GetSkillEffect(p1, p2)
 					ret:AddLeap(move, NO_DELAY)
 					ret.effect:back().bHide = true
 					targets = targets + 1
-					LOG(targets)
 				else
 					local block = SpaceDamage(launch,0)
 					block.sImageMark = "advanced/combat/icons/icon_throwblocked_glow.png"

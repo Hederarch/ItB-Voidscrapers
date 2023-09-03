@@ -4,30 +4,51 @@ local modId = "hedera_voidscrapers"
 -- big thanks to the Vextras team (especially NAH) for helping me set this up
 -- and letting me blatantly steal all this code lmao
 
+local function check_pilot_status()
+	if modApi.achievements:isComplete(modId,"VS_BossKill") and modApi.achievements:isComplete(modId,"VS_MassMove") and modApi.achievements:isComplete(modId,"VS_TripleKill") then
+		modApi.achievements:trigger(modId,"VS_Final")
+	end
+end
+
 local achievements = {
 	VS_BossKill = modApi.achievements:add{
 		id = "VS_BossKill",
 		name = "Like a Boss",
-		tooltip = "Kill a Leader Vek on the first turn with the Void Grip",
+		tooltip = "Kill a Leader Vek on the first turn with the Void Grip. Unlocks this weapon for all squads.",
 		image = mod.resourcePath.."img/achievements/voidscrapers_chievo1.png",
 		objective = 1,
 		squad = "Voidscrapers",
+		addReward = check_pilot_status,
+		remReward = check_pilot_status,
 	},
 
 	VS_MassMove = modApi.achievements:add{
 		id = "VS_MassMove",
 		name = "All Together Now",
-		tooltip = "Move 4 Vek at once with the Inversion Mortar",
+		tooltip = "Move 4 Vek at once with the Inversion Mortar. Unlocks this weapon for all squads.",
 		image = mod.resourcePath.."img/achievements/voidscrapers_chievo2.png",
 		objective = 1,
 		squad = "Voidscrapers",
+		addReward = check_pilot_status,
+		remReward = check_pilot_status,
 	},
 	
 	VS_TripleKill = modApi.achievements:add{
 		id = "VS_TripleKill",
 		name = "Playing With Power",
-		tooltip = "Kill 3 Vek at once with the Flux Caster",
+		tooltip = "Kill 3 Vek at once with the Flux Caster. Unlocks this weapon for all squads.",
 		image = mod.resourcePath.."img/achievements/voidscrapers_chievo3.png",
+		objective = 1,
+		squad = "Voidscrapers",
+		addReward = check_pilot_status,
+		remReward = check_pilot_status,
+	},
+	
+	VS_Final = modApi.achievements:add{
+		id = "VS_Final",
+		name = "Voidscrapers Mastery",
+		tooltip = "Unlocks a secret pilot and palette! (requires restart to fully unlock, sorry)",
+		image = mod.resourcePath.."img/achievements/voidscrapers_mastery.png",
 		objective = 1,
 		squad = "Voidscrapers",
 	},

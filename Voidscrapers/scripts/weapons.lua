@@ -359,7 +359,7 @@ SS_PrecisionShot_AB = SS_PrecisionShot:new{
 	},
 }
 
-function FireChevio(id)
+local function FireChevio(id)
 	local complete = modApi.achievements:isComplete(modId,id)
 	if complete then return end
 	modApi.achievements:trigger(modId,id)

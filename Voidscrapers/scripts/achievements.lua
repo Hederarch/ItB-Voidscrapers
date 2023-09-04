@@ -57,7 +57,7 @@ local achievements = {
 local fluxAttack = false
 local fluxCount = 0
 
-function FireChevio(id)
+local function FireChevio(id)
 	local complete = modApi.achievements:isComplete(modId,id)
 	if complete then return end
 	modApi.achievements:trigger(modId,id)
